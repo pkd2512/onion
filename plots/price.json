@@ -6,17 +6,21 @@
   "data": {
     "url": "data/onion_q.csv"
   },
+  "transform": [
+    {"filter": {"timeUnit": "year", "field": "date", "range": [1996, 2016] }}
+  ],
   "selection": {
     "st": {
       "type": "single",
       "fields": ["state"],
       "bind": {"input": "select", "options": ["AP","ASM","BHR","DEL","GUJ","HP","HR","JH","JK","KNT","KER","MH","MP","MS","OR","PB","RAJ","TN","UP","WB"]},
-      "on": "mouseover"
+      "on": "mouseover",
+      "resolve": "global"
     }
   },
   "mark": {"type": "circle"},
   "encoding": {
-    "x": {"field": "date", "type": "temporal", "timeUnit": "yearmonth", "axis": {"tickCount": 20}},
+    "x": {"field": "date", "type": "temporal", "timeUnit": "yearmonth", "axis": {"tickCount": 18}},
     "y": {"field": "priceMod", "type": "quantitative", "scale": {"type": "linear"}, "axis": {"tickCount": 5}},
     "tooltip": {"field": "priceMod", "type": "quantitative"},
     "color": {

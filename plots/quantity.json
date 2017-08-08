@@ -14,10 +14,10 @@
       "on": "mouseover"
     }
   },
-  "mark": {"type": "line", "interpolate": "monotone"},
+  "mark": {"type": "area", "interpolate": "monotone"},
   "encoding": {
-    "x": {"field": "date", "type": "temporal", "timeUnit": "yearmonth"},
-    "y": {"field": "quantity", "type": "quantitative", "scale": {"type": "linear"}},  
+    "x": {"field": "date", "type": "temporal", "timeUnit": "yearmonth", "axis": {"tickCount": 18}},
+    "y": {"aggregate": "sum","field": "quantity", "type": "quantitative", "scale": {"type": "linear"}, "axis": {"tickCount": 5}},  
     "color": {
       "value": "#e8eaf6",
       "condition": {"selection": "st", "field": "state", "type": "nominal", "scale": {"scheme": "category20b"}}
