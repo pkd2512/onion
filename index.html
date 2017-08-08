@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>A visualization of Onion Prices in India from 1996-2016</title>
+<!-- 	<script src="https://vega.github.io/vega/assets/promise.min.js"></script>
+  	<script src="https://vega.github.io/vega/assets/symbol.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vega/3.0.0-rc6/vega.min.js"</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vega-lite/2.0.0-beta.0/vega-lite.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/3.0.0-beta.20/vega-embed.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vega-tooltip/0.4.2/vega-tooltip.min.js"></script> -->
+	<script src="lib/vega.min.js"></script>
+	<script src="lib/vega-lite.min.js"></script>
+	<script src="lib/vega-embed.min.js"></script>
+	<script src="lib/vega-tooltip.min.js"></script>
+</head>
+	<body>
+	<div class="container">
+		<div id="plot1"></div>
+		<div id="plot2"></div>
+	</div>
+		<!-- <script>
+			var opt = {
+				  "logLevel" : vega.Warn,				  
+				  "actions" : false,
+				  "config" : {
+				  	"axis": {
+     					"grid": false,
+				      	"gridColor": "#dedede"
+				   		 }	
+				    },			  
+				}
+			var spec = "plots/bar.json";
+			vega.embed('#plot1', spec, opt);
+			//vega.embed('#view1', 'https://vega.github.io/vega/examples/bar-chart.vg.json');
+		</script> -->
+		<script>
+			var config = {};
+			var opts = {"mode": "vega-lite", "renderer": "svg", "actions": false};
+			var vis = "plots/quantity.json";
+			vega.embed('#plot1', vis, opts);
+			vega.embed('#plot2', "plots/price.json", opts);
+		</script>
+	</body>
+</html>

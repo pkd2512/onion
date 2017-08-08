@@ -1,0 +1,27 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "description": "A simple bar chart with embedded data.",
+  "height": "400",
+  "width": "1024",
+  "data": {
+    "url": "data/onion_q.csv"
+  },
+  "selection": {
+    "st": {
+      "type": "single",
+      "fields": ["state"],
+      "bind": {"input": "select", "options": ["AP","ASM","BHR","DEL","GUJ","HP","HR","JH","JK","KNT","KER","MH","MP","MS","OR","PB","RAJ","TN","UP","WB"]},
+      "on": "mouseover"
+    }
+  },
+  "mark": {"type": "line", "interpolate": "monotone"},
+  "encoding": {
+    "x": {"field": "date", "type": "temporal", "timeUnit": "yearmonth"},
+    "y": {"field": "quantity", "type": "quantitative", "scale": {"type": "linear"}},  
+    "color": {
+      "value": "#e8eaf6",
+      "condition": {"selection": "st", "field": "state", "type": "nominal", "scale": {"scheme": "category20b"}}
+    }
+  },
+  "config": {"area": {"fillOpacity": "0.69"}}
+}
